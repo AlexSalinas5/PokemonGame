@@ -2,7 +2,7 @@
 
 ## Turn-Based Pokémon Battle Game (Completed)
 
-**In Terminal:** A fast-paced, 3-player Pokémon-style battle simulator written in Java, featuring ASCII visuals and turn-based combat logic. This project applies core object-oriented programming principles; encapsulation, inheritance, abstraction, interfaces, and polymorphism; to implement elemental damage systems, Pokémon evolution, and status effects such as poison and invincibility. The codebase consists of over 2,000 lines across 25 classes, including abstract classes, interfaces, custom exceptions, and enums.
+**In Terminal:** A fast-paced, 3-player Pokémon-style battle simulator written in Java, featuring ASCII visuals and turn-based combat logic. This project applies core object-oriented programming principles; encapsulation, inheritance, abstraction, interfaces, and polymorphism; to implement elemental damage systems, Pokémon evolution, and status effects such as poison and invincibility. The codebase consists of over 2,500 lines across 25 classes, including abstract classes, interfaces, custom exceptions, and enums.
 
 ---
 
@@ -22,7 +22,7 @@ Ideally, I envision my `main` method looking something like:
 
 ```java
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         IntroductionToGame.start();
         GameLogic.start();
     }
