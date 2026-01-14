@@ -1,3 +1,7 @@
+**IMPORTANT NOTE:** I made a significant update to the code on Jan. 14, 2026. Once I finish implementing the `gameLogic()` method in the `GameLogic` class, I will update this README with the latest changes.
+
+--
+
 # PokemonGame
 
 ## Turn-Based Pokémon Battle Game (Completed)
