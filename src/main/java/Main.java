@@ -19,6 +19,9 @@ import Pokemon.Water.Wartortle;
 public class Main {
   public static void main(String[] args) throws InterruptedException {
 
+    //    GameLogic a = new GameLogic();
+    //    a.startGame();
+
     Runnable fiveSecondCounter =
         () -> {
           System.out.print("Wait for timer to complete.\n");

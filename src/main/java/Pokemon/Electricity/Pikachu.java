@@ -4,71 +4,103 @@ import ASCIIArt.PokemonArt;
 import Elements.Electric.ElectricType;
 import Elements.ElementType;
 import Pokemon.Pokemon;
-import Pokemon.AttackInfo1;
-import Pokemon.AttackInfo2;
 import Pokemon.PokemonAndHealth;
 import java.util.Random;
+import Pokemon.AttackInfo;
 
-public class Pikachu extends Pokemon implements AttackInfo1, AttackInfo2 {
+/**
+ * Represents the Pokémon Pikachu, an Electric-type Pokémon.
+ * <p>
+ * Pikachu has two available attacks:
+ * <ul>
+ *   <li>{@code Gnaw}: Deals base damage plus any elemental bonus
+ *       against the opponent.</li>
+ *   <li>{@code Thunder Jolt}: Deals base damage plus any elemental bonus.
+ *       Performs a coin flip; if tails, Pikachu takes 10 damage itself.</li>
+ * </ul>
+ * This class defines Pikachu's specific attack logic and overrides
+ * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
+ * </p>
+ */
+public class Pikachu extends Pokemon {
 
+  /** Array of attacks available to Pikachu. */
+  private final AttackInfo[] attackInfo;
+
+  /**
+   * Constructs a new Pikachu Pokémon with default health, element type,
+   * ASCII art, and its two attacks.
+   */
   public Pikachu() {
     super(
-        "Pikachu", PokemonAndHealth.PIKACHU.getHealth(), new ElectricType(), PokemonArt.pikachuArt);
+        "Pikachu",
+        PokemonAndHealth.PIKACHU.getHealth(),
+        new ElectricType(),
+        PokemonArt.pikachuArt,
+        new AttackInfo[] {
+          new AttackInfo(
+              "Gnaw",
+              "Pikachu uses its sharp teeth to bite down on its target, delivering a quick and painful strike.",
+              10),
+          new AttackInfo(
+              "Thunder Jolt", "Flip a coin. If tails, Pikachu does 10 damage to itself.", 30)
+        });
+    attackInfo = super.getAttackInfo();
   }
 
-  @Override
-  public String getAttackName1() {
-    return "Gnaw";
-  }
-
-  @Override
-  public String getAttackDescription1() {
-    return "Pikachu uses its sharp teeth to bite down on its target, delivering a quick and painful strike.";
-  }
-
-  @Override
-  public int getAttackDamage1() {
-    return 10;
-  }
-
-  @Override
+  /**
+   * Executes Pikachu's {@code Gnaw} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by Gnaw
+   */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
-    return getAttackDamage1()
+    return attackInfo[0].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
-  @Override
-  public String getAttackName2() {
-    return "Thunder Jolt";
-  }
-
-  @Override
-  public String getAttackDescription2() {
-    return "Flip a coin. If tails, Pikachu does 10 damage to itself.";
-  }
-
-  @Override
-  public int getAttackDamage2() {
-    return 30;
-  }
-
-  @Override
+  /**
+   * Executes Pikachu's {@code Thunder Jolt} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type. A coin flip determines whether
+   * Pikachu damages itself for 10 HP.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by Thunder Jolt
+   */
   public int getAttackResult2(ElementType elementTypeOfOpponentPokemon) {
     Random random = new Random();
-    int coinFlipAnswer = random.nextInt(2);
+    int decidesIfDamageYourself = random.nextInt(2);
 
-    if (coinFlipAnswer == 0) {
+    if (decidesIfDamageYourself == 0) {
+      int damageAmount = 10;
       System.out.println("Unfortunately, you rolled tails, so you damage yourself!");
-      this.setHealthIfPokemonDamagesItsSelf(10);
-      return getAttackDamage2()
+      super.setHealthIfPokemonDamagesItsSelf(damageAmount);
+      return attackInfo[1].getAttackDamage()
           + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
     } else {
       System.out.println("You rolled heads, so you do not damage yourself!");
-      return getAttackDamage2()
+      return attackInfo[1].getAttackDamage()
           + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
     }
   }
 
+  /**
+   * Performs an attack on an opponent Pokémon.
+   * <p>
+   * Executes {@code Gnaw} if {@code attack} equals 1; otherwise,
+   * executes {@code Thunder Jolt} and may damage Pikachu itself based on a coin flip.
+   * </p>
+   *
+   * @param OpponentPokemon the Pokémon being attacked
+   * @param attack the index of the attack to use (1 for Gnaw, others for Thunder Jolt)
+   */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {
     int AttackInfo1 = 1;
@@ -79,26 +111,5 @@ public class Pikachu extends Pokemon implements AttackInfo1, AttackInfo2 {
       OpponentPokemon.setHealth(
           OpponentPokemon.getHealth() - getAttackResult2(OpponentPokemon.getElementType()));
     }
-  }
-
-  @Override
-  public void getAttackAndDamageInfo() {
-    System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
-
-    printBuffsAndDebuffs();
-
-    System.out.println(
-        "\nAttack: "
-            + getAttackName1()
-            + "\nDamage: "
-            + getAttackDamage1()
-            + "\nAttack Description: "
-            + getAttackDescription1()
-            + "\nAttack: "
-            + getAttackName2()
-            + "\nDamage: "
-            + getAttackDamage2()
-            + "\nAttack Description: "
-            + getAttackDescription2());
   }
 }

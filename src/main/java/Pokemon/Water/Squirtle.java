@@ -4,55 +4,73 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Water.WaterType;
 import Pokemon.Pokemon;
-import Pokemon.AttackInfo1;
 import Pokemon.PokemonAndHealth;
+import Pokemon.AttackInfo;
 
-public class Squirtle extends Pokemon implements AttackInfo1 {
+/**
+ * Represents the Pokémon Squirtle, a Water-type Pokémon.
+ * <p>
+ * Squirtle has a single attack:
+ * <ul>
+ *   <li>{@code Shell Attack}: Deals base damage plus any elemental bonus
+ *       against the opponent.</li>
+ * </ul>
+ * This class defines Squirtle's specific attack logic and overrides
+ * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
+ * </p>
+ */
+public class Squirtle extends Pokemon {
 
+  /** Array of attacks available to Squirtle. */
+  private final AttackInfo[] attackInfo;
+
+  /**
+   * Constructs a new Squirtle Pokémon with default health, element type,
+   * ASCII art, and its single attack.
+   */
   public Squirtle() {
     super(
-        "Squirtle", PokemonAndHealth.SQUIRTLE.getHealth(), new WaterType(), PokemonArt.squirtleArt);
+        "Squirtle",
+        PokemonAndHealth.SQUIRTLE.getHealth(),
+        new WaterType(),
+        PokemonArt.squirtleArt,
+        new AttackInfo[] {
+          new AttackInfo(
+              "Shell Attack",
+              "Squirtle strikes with its hard shell, delivering a strong and steady hit.",
+              20)
+        });
+    attackInfo = super.getAttackInfo();
   }
 
-  @Override
-  public String getAttackName1() {
-    return "Shell Attack";
-  }
-
-  @Override
-  public String getAttackDescription1() {
-    return "Squirtle strikes with its hard shell, delivering a strong and steady hit.";
-  }
-
-  @Override
-  public int getAttackDamage1() {
-    return 20;
-  }
-
-  @Override
+  /**
+   * Executes Squirtle's {@code Shell Attack}.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by the Shell Attack
+   */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
-    return getAttackDamage1()
+    return attackInfo[0].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
+  /**
+   * Performs an attack on an opponent Pokémon.
+   * <p>
+   * Since Squirtle has only one attack, this method always executes
+   * {@code Shell Attack}.
+   * </p>
+   *
+   * @param OpponentPokemon the Pokémon being attacked
+   * @param attack the index of the attack to use (ignored, as Squirtle has only one attack)
+   */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {
     OpponentPokemon.setHealth(
         OpponentPokemon.getHealth() - getAttackResult1(OpponentPokemon.getElementType()));
-  }
-
-  @Override
-  public void getAttackAndDamageInfo() {
-    System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
-
-    printBuffsAndDebuffs();
-
-    System.out.println(
-        "\nAttack: "
-            + getAttackName1()
-            + "\nDamage: "
-            + getAttackDamage1()
-            + "\nAttack Description: "
-            + getAttackDescription1());
   }
 }
