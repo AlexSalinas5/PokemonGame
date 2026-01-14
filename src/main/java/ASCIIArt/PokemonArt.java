@@ -2,8 +2,29 @@ package ASCIIArt;
 
 // All ASCII art used can be found here (I did not create any of it): https://www.asciiart.eu/video-games/pokemon
 
+/**
+ * Contains ASCII art representations for Pokémon and related graphics.
+ * <p>
+ * All art is sourced externally and credited here:
+ * <a href="https://www.asciiart.eu/video-games/pokemon">https://www.asciiart.eu/video-games/pokemon</a>
+ * </p>
+ * <p>
+ * Each Pokémon has a corresponding {@code public static String} field that stores
+ * its ASCII art. These can be used throughout the game to display Pokémon
+ * graphics in the console or GUI components that support monospaced text.
+ * </p>
+ * <p>
+ * Example usage:
+ * <pre>
+ * {@code
+ * System.out.println(PokemonArt.pikachuArt);
+ * }
+ * </pre>
+ * </p>
+ */
 public class PokemonArt {
 
+  /** ASCII art for the Pokémon logo. */
   public static String pokemonLogoArt =
             "                                  ,'\\\n"
           + "    _.----.        ____         ,'  _\\   ___    ___     ____\n"
@@ -18,6 +39,7 @@ public class PokemonArt {
           + "        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\n"
           + "                                `'                            '-._|";
 
+  /** ASCII art for Charizard. */
   public static String charizardArt =
             "                 .\"-,.__\n"
           + "                 `.     `.  ,\n"
@@ -59,6 +81,7 @@ public class PokemonArt {
           + "               /_|.-'\\ ,\".             '.'`__'-( \\\n"
           + "                 / ,\"'\"\\,'               `/  `-.|\"";
 
+  /** ASCII art for Charmeleon. */
   public static String charmeleonArt =
             "                      ,-'`\\\n"
           + "                  _,\"'    j\n"
@@ -97,6 +120,7 @@ public class PokemonArt {
           + "                  L,.--\"'           '-' |  ,' `-.\\\n"
           + "                                        `.'";
 
+  /** ASCII art for Charmander. */
   public static String charmanderArt =
             "              _.--\"\"`-..\n"
           + "            ,'          `.\n"
@@ -133,6 +157,7 @@ public class PokemonArt {
           + "    \"\"--'---\"\"\"\"\"'        `' '! |! /\n"
           + "                            `\" \" -'";
 
+  /** ASCII art for Ivysaur. */
   public static String ivysaurArt =
             "                           _._       _,._\n"
           + "                        _.'   `. ' .'   _`.\n"
@@ -166,6 +191,7 @@ public class PokemonArt {
           + "       /_\\.__,\"\".   ,.'  \"`-...________.---\"     .\".   ,.  / \\\n"
           + "              \\_/\"\"\"-'                           `-'--(_,`\"`-` ";
 
+  /** ASCII art for Venusaur. */
   public static String venusaurArt =
           "                               ,'\"`.,./.\n" +
           "                             ,'        Y',\"..\n" +
@@ -200,6 +226,7 @@ public class PokemonArt {
           "//\\   ,-._.'\"/\\__,.   _,\"     /_\\__/`. /'.-.'.-/_,`-' mh\n" +
           "`-\"`\"' v'    `\"  `-`-\"              `-'`-`  `'";
 
+  /** ASCII art for Bulbasaur. */
   public static String bulbasaurArt =
             "                                           _\n"
           + "                        _,.------....___,.' ',.-.\n"
@@ -230,6 +257,7 @@ public class PokemonArt {
           + " '-.__ __ _,','    '`-..___;-...__   ,.'\\ ____.___.'\n"
           + " `\"^--'..'   '-`-^-'\"--    `-^-'`.''\"\"\"\"\"`.,^.`.--'";
 
+  /** ASCII art for Blastoise. */
   public static String blastoiseArt =
             "                          _\n"
           + "            _,..-\"\"\"--' `,.-\".\n"
@@ -268,6 +296,7 @@ public class PokemonArt {
           + "                 \"\"\"\"\"`.,'         _\\`----...' mh\n"
           + "                        --------\"\"'";
 
+  /** ASCII art for Wartortle. */
   public static String wartortleArt =
             "     __                                _.--'\"7\n"
           + "    `. `--._                        ,-'_,-  ,'\n"
@@ -306,6 +335,7 @@ public class PokemonArt {
           + "             `-\"'  `\"\"\"\"'            7         `.\n"
           + "                                    `---'--.,'\"`'";
 
+  /** ASCII art for Squirtle. */
   public static String squirtleArt =
             "               _,........__\n"
           + "            ,-'            \"`-.\n"
@@ -341,8 +371,10 @@ public class PokemonArt {
           + "                7____,,..--'      /          |\n"
           + "                                  `---.__,--.'";
 
+  /** Placeholder ASCII art for Raichu. */
   public static String raichuArt = "AN ACTUAL RAICHU ASCII ART NEEDS TO BE FOUND AND REPLACE THIS TEXT!!!!!!";
 
+  /** ASCII art for Pikachu. */
   public static String pikachuArt =
           "quu..__\n"
                   + " $$$b  `---.__\n"

@@ -4,58 +4,91 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Grass.GrassType;
 import Pokemon.Pokemon;
-import Pokemon.AttackInfo1;
-import Pokemon.AttackInfo2;
 import Pokemon.PokemonAndHealth;
+import Pokemon.AttackInfo;
 
-public class Ivysaur extends Pokemon implements AttackInfo1, AttackInfo2 {
+/**
+ * Represents the Pokémon Ivysaur, a Grass-type Pokémon.
+ * <p>
+ * Ivysaur has two available attacks:
+ * <ul>
+ *   <li>{@code Vine Whip}: Deals base damage plus any elemental bonus
+ *       against the opponent.</li>
+ *   <li>{@code Poisonpowder}: Deals base damage plus any elemental bonus
+ *       and poisons the opponent Pokémon.</li>
+ * </ul>
+ * This class defines Ivysaur's specific attack logic and overrides
+ * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
+ * </p>
+ */
+public class Ivysaur extends Pokemon {
 
+  /** Array of attacks available to Ivysaur. */
+  private final AttackInfo[] attackInfo;
+
+  /**
+   * Constructs a new Ivysaur Pokémon with default health, element type,
+   * ASCII art, and its two attacks.
+   */
   public Ivysaur() {
-    super("Ivysaur", PokemonAndHealth.IVYSAUR.getHealth(), new GrassType(), PokemonArt.ivysaurArt);
+    super(
+        "Ivysaur",
+        PokemonAndHealth.IVYSAUR.getHealth(),
+        new GrassType(),
+        PokemonArt.ivysaurArt,
+        new AttackInfo[] {
+          new AttackInfo(
+              "Vine Whip",
+              "Ivysaur lashes out with its sturdy vines, striking the opponent with swift and precise attacks.",
+              30),
+          new AttackInfo(
+                  "Poisonpowder",
+                  "The defending player's Pokémon is now poisoned.",
+                  20)
+        });
+    attackInfo = super.getAttackInfo();
   }
 
-  @Override
-  public String getAttackName1() {
-    return "Vine Whip";
-  }
-
-  @Override
-  public String getAttackDescription1() {
-    return "Ivysaur lashes out with its sturdy vines, striking the opponent with swift and precise attacks.";
-  }
-
-  @Override
-  public int getAttackDamage1() {
-    return 30;
-  }
-
-  @Override
+  /**
+   * Executes Ivysaur's {@code Vine Whip} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by Vine Whip
+   */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
-    return getAttackDamage1()
+    return attackInfo[0].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
-  @Override
-  public String getAttackName2() {
-    return "Poisonpowder";
-  }
-
-  @Override
-  public String getAttackDescription2() {
-    return "The defending player's Pokémon is now poisoned.";
-  }
-
-  @Override
-  public int getAttackDamage2() {
-    return 20;
-  }
-
-  @Override
+  /**
+   * Executes Ivysaur's {@code Poisonpowder} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus, and poisons the opponent Pokémon.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by Poisonpowder
+   */
   public int getAttackResult2(ElementType elementTypeOfOpponentPokemon) {
-    return getAttackDamage1()
+    return attackInfo[1].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
+  /**
+   * Performs an attack on an opponent Pokémon.
+   * <p>
+   * Executes {@code Vine Whip} if {@code attack} equals 1; otherwise,
+   * executes {@code Poisonpowder} and applies poison to the opponent.
+   * </p>
+   *
+   * @param OpponentPokemon the Pokémon being attacked
+   * @param attack the index of the attack to use (1 for Vine Whip, others for Poisonpowder)
+   */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {
     int AttackInfo1 = 1;
@@ -67,26 +100,5 @@ public class Ivysaur extends Pokemon implements AttackInfo1, AttackInfo2 {
           OpponentPokemon.getHealth() - getAttackResult2(OpponentPokemon.getElementType()));
       OpponentPokemon.setTellsIfPokemonIsPoisoned(true);
     }
-  }
-
-  @Override
-  public void getAttackAndDamageInfo() {
-    System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
-
-    printBuffsAndDebuffs();
-
-    System.out.println(
-        "\nAttack: "
-            + getAttackName1()
-            + "\nDamage: "
-            + getAttackDamage1()
-            + "\nAttack Description: "
-            + getAttackDescription1()
-            + "\nAttack: "
-            + getAttackName2()
-            + "\nDamage: "
-            + getAttackDamage2()
-            + "\nAttack Description: "
-            + getAttackDescription2());
   }
 }

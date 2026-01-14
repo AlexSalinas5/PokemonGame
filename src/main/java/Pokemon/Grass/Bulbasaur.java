@@ -4,59 +4,74 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Grass.GrassType;
 import Pokemon.Pokemon;
-import Pokemon.AttackInfo1;
 import Pokemon.PokemonAndHealth;
+import Pokemon.AttackInfo;
 
-public class Bulbasaur extends Pokemon implements AttackInfo1 {
+/**
+ * Represents the Pokémon Bulbasaur, a Grass-type Pokémon.
+ * <p>
+ * Bulbasaur has a single attack:
+ * <ul>
+ *   <li>{@code Leech Seed}: Deals base damage plus any elemental bonus
+ *       against the opponent, and heals 10 HP for Bulbasaur itself.</li>
+ * </ul>
+ * This class defines Bulbasaur's specific attack logic and overrides
+ * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
+ * </p>
+ */
+public class Bulbasaur extends Pokemon {
 
+  /** Array of attacks available to Bulbasaur. */
+  private final AttackInfo[] attackInfo;
+
+  /**
+   * Constructs a new Bulbasaur Pokémon with default health, element type,
+   * ASCII art, and its single attack.
+   */
   public Bulbasaur() {
     super(
         "Bulbasaur",
         PokemonAndHealth.BULBASAUR.getHealth(),
         new GrassType(),
-        PokemonArt.bulbasaurArt);
+        PokemonArt.bulbasaurArt,
+        new AttackInfo[] {
+          new AttackInfo(
+              "Leech Seed",
+                  "This attack does 20 damage. Heal 10 HP from this Pokémon.",
+                  20)
+        });
+    attackInfo = super.getAttackInfo();
   }
 
-  @Override
-  public String getAttackName1() {
-    return "Leech Seed";
-  }
-
-  @Override
-  public String getAttackDescription1() {
-    return "This attack does 20 damage. Heal 10 HP from this Pokémon.";
-  }
-
-  @Override
-  public int getAttackDamage1() {
-    return 20;
-  }
-
-  @Override
+  /**
+   * Executes Bulbasaur's {@code Leech Seed} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type. Heals Bulbasaur for 10 HP.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by Leech Seed
+   */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
-    this.setHealthIfPokemonHealsItsSelf(getHealth(), 10);
-    return getAttackDamage1()
+    super.setHealthIfPokemonHealsItsSelf(getHealth(), 10);
+    return attackInfo[0].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
+  /**
+   * Performs an attack on an opponent Pokémon.
+   * <p>
+   * Since Bulbasaur has only one attack, this method always executes
+   * {@code Leech Seed}.
+   * </p>
+   *
+   * @param OpponentPokemon the Pokémon being attacked
+   * @param attack the index of the attack to use (ignored, as Bulbasaur has only one attack)
+   */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {
     OpponentPokemon.setHealth(
         OpponentPokemon.getHealth() - getAttackResult1(OpponentPokemon.getElementType()));
-  }
-
-  @Override
-  public void getAttackAndDamageInfo() {
-    System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
-
-    printBuffsAndDebuffs();
-
-    System.out.println(
-        "\nAttack: "
-            + getAttackName1()
-            + "\nDamage: "
-            + getAttackDamage1()
-            + "\nAttack Description: "
-            + getAttackDescription1());
   }
 }

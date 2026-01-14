@@ -4,43 +4,66 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Water.WaterType;
 import Pokemon.Pokemon;
-import Pokemon.AttackInfo1;
-import Pokemon.AttackInfo2;
 import java.util.Random;
 import Pokemon.PokemonAndHealth;
+import Pokemon.AttackInfo;
 
-public class Wartortle extends Pokemon implements AttackInfo1, AttackInfo2 {
+/**
+ * Represents the Pokémon Wartortle, a Water-type Pokémon.
+ * <p>
+ * Wartortle has two available attacks:
+ * <ul>
+ *   <li>{@code Withdraw}: May grant temporary invincibility based on a coin flip.</li>
+ *   <li>{@code Bite}: Deals base damage plus any elemental bonus against the opponent.</li>
+ * </ul>
+ * This class defines Wartortle's specific attack logic and overrides
+ * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
+ * </p>
+ */
+public class Wartortle extends Pokemon {
 
+  /** Array of attacks available to Wartortle. */
+  private final AttackInfo[] attackInfo;
+
+  /**
+   * Constructs a new Wartortle Pokémon with default health, element type,
+   * ASCII art, and its two attacks.
+   */
   public Wartortle() {
     super(
         "Wartortle",
         PokemonAndHealth.WARTORTLE.getHealth(),
         new WaterType(),
-        PokemonArt.wartortleArt);
+        PokemonArt.wartortleArt,
+        new AttackInfo[] {
+          new AttackInfo(
+              "Withdraw",
+              "Flip a coin. If heads, prevents all damage done to Wartortle during opponent's next turn.",
+              0),
+          new AttackInfo(
+              "Bite",
+              "Wartortle sinks its sharp fangs into the foe, delivering a fierce and decisive bite.",
+              40)
+        });
+    attackInfo = super.getAttackInfo();
   }
 
-  @Override
-  public String getAttackName1() {
-    return "Withdraw";
-  }
-
-  @Override
-  public String getAttackDescription1() {
-    return "Flip a coin. If heads, prevents all damage done to Wartortle during opponent's next turn.";
-  }
-
-  @Override
-  public int getAttackDamage1() {
-    return 0;
-  }
-
-  @Override
+  /**
+   * Executes the {@code Withdraw} attack.
+   * <p>
+   * Performs a coin flip to determine if Wartortle becomes invincible
+   * for the opponent's next turn.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return 0 (Withdraw does not deal direct damage)
+   */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     Random random = new Random();
-    int a = random.nextInt(2);
+    int decidesIfYouBecomeInvincible = random.nextInt(2);
 
-    if (a == 1) {
-      setTellsIfPokemonIsInvincible(true);
+    if (decidesIfYouBecomeInvincible == 1) {
+      super.setTellsIfPokemonIsInvincible(true);
       System.out.println("You rolled heads, so you become invincible!");
     } else {
       System.out.println("Unfortunately, you rolled tails, so you do not become invincible!");
@@ -48,54 +71,41 @@ public class Wartortle extends Pokemon implements AttackInfo1, AttackInfo2 {
     return 0;
   }
 
-  @Override
-  public String getAttackName2() {
-    return "Bite";
-  }
-
-  @Override
-  public String getAttackDescription2() {
-    return "Wartortle sinks its sharp fangs into the foe, delivering a fierce and decisive bite.";
-  }
-
-  @Override
-  public int getAttackDamage2() {
-    return 40;
-  }
-
-  @Override
+  /**
+   * Executes the {@code Bite} attack.
+   * <p>
+   * Deals damage equal to the attack's base damage plus any elemental
+   * bonus against the opponent's type.
+   * </p>
+   *
+   * @param elementTypeOfOpponentPokemon the opponent's elemental type
+   * @return total damage dealt by the Bite attack
+   */
   public int getAttackResult2(ElementType elementTypeOfOpponentPokemon) {
-    return getAttackDamage2()
+    return attackInfo[1].getAttackDamage()
         + this.elementType.tellerOfBonusAttackDamage(elementTypeOfOpponentPokemon);
   }
 
+  /**
+   * Performs an attack on an opponent Pokémon.
+   * <p>
+   * If {@code attack} equals 1, executes {@code Withdraw}. Otherwise,
+   * executes {@code Bite} and applies poison status to the opponent.
+   * </p>
+   *
+   * @param OpponentPokemon the Pokémon being attacked
+   * @param attack the index of the attack to use (1 for Withdraw, others for Bite)
+   */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {
-    int AttackInfo2 = 2;
-    if (attack == AttackInfo2) {
+    int AttackInfo1 = 1;
+    if (attack == AttackInfo1) {
+      OpponentPokemon.setHealth(
+          OpponentPokemon.getHealth() - getAttackResult1(OpponentPokemon.getElementType()));
+    } else {
       OpponentPokemon.setHealth(
           OpponentPokemon.getHealth() - getAttackResult2(OpponentPokemon.getElementType()));
+      OpponentPokemon.setTellsIfPokemonIsPoisoned(true);
     }
-  }
-
-  @Override
-  public void getAttackAndDamageInfo() {
-    System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
-
-    printBuffsAndDebuffs();
-
-    System.out.println(
-        "\nAttack: "
-            + getAttackName1()
-            + "\nDamage: "
-            + getAttackDamage1()
-            + "\nAttack Description: "
-            + getAttackDescription1()
-            + "\nAttack: "
-            + getAttackName2()
-            + "\nDamage: "
-            + getAttackDamage2()
-            + "\nAttack Description: "
-            + getAttackDescription2());
   }
 }
