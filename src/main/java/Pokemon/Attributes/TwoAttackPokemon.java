@@ -1,12 +1,11 @@
-package Pokemon;
+package Pokemon.Attributes;
 
 /**
  * Enumeration identifying Pokémon that have exactly two available attacks.
- * <p>
- * {@code TwoAttackPokemon} is used to categorize Pokémon whose move sets
- * are limited to two attacks. This can be leveraged in battle logic,
- * UI display, or validation to enforce attack-related constraints.
- * </p>
+ *
+ * <p>{@code TwoAttackPokemon} is used to categorize Pokémon whose move sets are limited to two
+ * attacks. This is useful in battle logic, UI display, or validation to enforce attack-related
+ * constraints for these specific Pokémon.
  */
 public enum TwoAttackPokemon {
 

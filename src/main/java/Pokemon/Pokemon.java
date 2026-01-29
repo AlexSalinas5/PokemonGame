@@ -1,15 +1,14 @@
 package Pokemon;
 
 import Elements.ElementType;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Abstract base class representing a Pokémon in the game.
- * <p>
- * A {@code Pokemon} encapsulates shared state and behavior such as name,
- * health, element type, available attacks, status effects, and combat-related
- * mechanics. Concrete Pokémon subclasses define specific behavior for
- * attacking opponents.
- * </p>
+ *
+ * <p>A {@code Pokemon} encapsulates shared attributes and behaviors such as name, health, element
+ * type, available attacks, status effects, and combat-related mechanics. Concrete Pokémon
+ * subclasses define specific behavior for attacking opponents.
  */
 public abstract class Pokemon {
 
@@ -55,9 +54,7 @@ public abstract class Pokemon {
     this.attackInfo = attackInfos;
   }
 
-  /**
-   * Prints the Pokémon's ASCII art to the console.
-   */
+  /** Prints the Pokémon's ASCII art to the console. */
   public void getAsciiArt() {
     System.out.println(this.asciiArt);
   }
@@ -116,9 +113,7 @@ public abstract class Pokemon {
     return this.counterToIncreaseAttackDamage;
   }
 
-  /**
-   * Increments the counter used to increase attack damage.
-   */
+  /** Increments the counter used to increase attack damage. */
   public void IncreaseCounterToIncreaseAttackDamage() {
     this.counterToIncreaseAttackDamage = getCounterToIncreaseAttackDamage() + 1;
   }
@@ -154,16 +149,13 @@ public abstract class Pokemon {
   /**
    * Sets the poisoned status of the Pokémon.
    *
-   * @param tellsIfPokemonIsPoisoned {@code true} to poison the Pokémon;
-   *     {@code false} otherwise
+   * @param tellsIfPokemonIsPoisoned {@code true} to poison the Pokémon; {@code false} otherwise
    */
   public void setTellsIfPokemonIsPoisoned(boolean tellsIfPokemonIsPoisoned) {
     this.tellsIfPokemonIsPoisoned = tellsIfPokemonIsPoisoned;
   }
 
-  /**
-   * Applies poison damage to the Pokémon if it is poisoned.
-   */
+  /** Applies poison damage to the Pokémon if it is poisoned. */
   public void ifPoisonedChangeHealth() {
     if (this.tellsIfPokemonIsPoisoned) {
       setHealth(getHealth() - 10);
@@ -182,8 +174,7 @@ public abstract class Pokemon {
   /**
    * Sets the invincibility status of the Pokémon.
    *
-   * @param updater {@code true} to make the Pokémon invincible;
-   *     {@code false} otherwise
+   * @param updater {@code true} to make the Pokémon invincible; {@code false} otherwise
    */
   public void setTellsIfPokemonIsInvincible(boolean updater) {
     this.tellsIfPokemonIsInvincible = updater;
@@ -191,9 +182,8 @@ public abstract class Pokemon {
 
   /**
    * Prints the current buffs and debuffs affecting the Pokémon.
-   * <p>
-   * This includes status effects such as poison and invincibility.
-   * </p>
+   *
+   * <p>This includes status effects such as poison and invincibility.
    */
   protected void printBuffsAndDebuffs() {
     if (this.tellsIfPokemonIsPoisoned) {
@@ -204,9 +194,7 @@ public abstract class Pokemon {
     }
   }
 
-  /**
-   * Prints the Pokémon's current health, status effects, and available attacks.
-   */
+  /** Prints the Pokémon's current health, status effects, and available attacks. */
   public void getAttackAndDamageInfo() {
     System.out.println("Your Pokémon: " + getName() + "\nYour health: " + getHealth());
 
@@ -225,9 +213,9 @@ public abstract class Pokemon {
 
   /**
    * Executes an attack against an opponent Pokémon.
-   * <p>
-   * Concrete subclasses define how damage is calculated and applied.
-   * </p>
+   *
+   * <p>Concrete subclasses define how damage is calculated and applied for specific Pokémon
+   * attacks.
    *
    * @param OpponentPokemon the Pokémon being attacked
    * @param attack the index of the attack being used

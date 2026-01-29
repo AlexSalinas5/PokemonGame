@@ -13,27 +13,23 @@ import Pokemon.Water.Squirtle;
 import Pokemon.Water.Wartortle;
 
 /**
- * Factory class responsible for creating {@link Pokemon} instances.
- * <p>
- * The {@code PokemonFactory} centralizes Pokémon object creation based on
- * a provided Pokémon name. This follows the Factory design pattern and
- * allows Pokémon instantiation logic to be maintained in a single location.
- * </p>
+ * Factory class for creating {@link Pokemon} instances.
+ *
+ * <p>This class implements the Factory design pattern, centralizing the creation of Pokémon objects
+ * based on their names. Pokémon names are treated case-insensitively. Adding new Pokémon requires
+ * updating this factory.
  */
 public class PokemonFactory {
 
   /**
-   * Creates and returns a {@link Pokemon} instance corresponding to the
-   * given Pokémon name.
-   * <p>
-   * The provided name is case-insensitive. If the Pokémon name is not
-   * recognized, an {@link IllegalArgumentException} is thrown, indicating
-   * that the factory must be updated to support the requested Pokémon.
-   * </p>
+   * Creates a new {@link Pokemon} instance based on the provided Pokémon name.
+   *
+   * <p>The method is case-insensitive. If the name does not match any known Pokémon, an {@link
+   * IllegalArgumentException} is thrown.
    *
    * @param pokemonToBeCreated the name of the Pokémon to create
    * @return a new instance of the specified {@link Pokemon}
-   * @throws IllegalArgumentException if the Pokémon name is not supported
+   * @throws IllegalArgumentException if the Pokémon name is not recognized
    */
   public Pokemon pokemonFactory(String pokemonToBeCreated) {
     return switch (pokemonToBeCreated.toUpperCase()) {

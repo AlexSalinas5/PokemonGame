@@ -1,12 +1,17 @@
-package Pokemon;
+package Pokemon.Attributes;
 
 /**
- * Enumeration defining Pokémon species and their default health values.
- * <p>
- * {@code PokemonAndHealth} provides a centralized mapping between a Pokémon's
- * name and its starting health. This enum is typically used during Pokémon
- * creation to ensure consistent and maintainable health initialization.
- * </p>
+ * Enumeration defining Pokémon species along with their default health values.
+ *
+ * <p>{@code PokemonAndHealth} provides a centralized mapping between a Pokémon's species and its
+ * starting health. This enum is typically used during Pokémon creation to ensure consistent
+ * initialization of health values across the game.
+ *
+ * <p>Example usage:
+ *
+ * <pre>{@code
+ * int pikachuHealth = PokemonAndHealth.PIKACHU.getHealth();
+ * }</pre>
  */
 public enum PokemonAndHealth {
 
@@ -43,23 +48,20 @@ public enum PokemonAndHealth {
   /** Wartortle's default health value. */
   WARTORTLE(70);
 
-
   /** The default health associated with the Pokémon. */
   private final int health;
 
-
   /**
-   * Constructs a {@code PokemonAndHealth} enum constant with a specified
-   * default health value.
+   * Constructs a {@code PokemonAndHealth} enum constant with the specified default health value.
    *
-   * @param health the starting health for the Pokémon
+   * @param health the starting health of the Pokémon
    */
   PokemonAndHealth(int health) {
     this.health = health;
   }
 
   /**
-   * Returns the default health value for the Pokémon.
+   * Returns the default health value for this Pokémon.
    *
    * @return the Pokémon's starting health
    */

@@ -4,8 +4,8 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Fire.FireType;
 import Pokemon.Pokemon;
-import Pokemon.PokemonAndHealth;
-import Pokemon.AttackInfo;
+import Pokemon.Attributes.PokemonAndHealth;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Represents the Pokémon Charmander, a Fire-type Pokémon.
@@ -50,8 +50,8 @@ public class Charmander extends Pokemon {
    * bonus against the opponent's type.
    * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Ember
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Ember}
    */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     return attackInfo[0].getAttackDamage()

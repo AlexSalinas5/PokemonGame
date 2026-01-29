@@ -4,20 +4,20 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Fire.FireType;
 import Pokemon.Pokemon;
-import Pokemon.PokemonAndHealth;
-import Pokemon.AttackInfo;
+import Pokemon.Attributes.PokemonAndHealth;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Represents the Pokémon Charmeleon, a Fire-type Pokémon.
- * <p>
- * Charmeleon has a single attack:
+ *
+ * <p>Charmeleon has a single attack:
+ *
  * <ul>
- *   <li>{@code Flamethrower}: Deals base damage plus any elemental bonus
- *       against the opponent.</li>
+ *   <li>{@code Flamethrower}: Deals base damage plus any elemental bonus against the opponent.
  * </ul>
- * This class defines Charmeleon's specific attack logic and overrides
- * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
- * </p>
+ *
+ * This class defines Charmeleon's specific attack logic and overrides the abstract {@link
+ * Pokemon#hitOpponent(Pokemon, int)} method.
  */
 public class Charmeleon extends Pokemon {
 
@@ -25,8 +25,8 @@ public class Charmeleon extends Pokemon {
   private final AttackInfo[] attackInfo;
 
   /**
-   * Constructs a new Charmeleon Pokémon with default health, element type,
-   * ASCII art, and its single attack.
+   * Constructs a new Charmeleon Pokémon with default health, element type, ASCII art, and its
+   * single attack.
    */
   public Charmeleon() {
     super(
@@ -45,13 +45,12 @@ public class Charmeleon extends Pokemon {
 
   /**
    * Executes Charmeleon's {@code Flamethrower} attack.
-   * <p>
-   * Deals damage equal to the attack's base damage plus any elemental
-   * bonus against the opponent's type.
-   * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Flamethrower
+   * <p>Deals damage equal to the attack's base damage plus any elemental bonus against the
+   * opponent's type.
+   *
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Flamethrower}
    */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     return attackInfo[0].getAttackDamage()
@@ -60,10 +59,8 @@ public class Charmeleon extends Pokemon {
 
   /**
    * Performs an attack on an opponent Pokémon.
-   * <p>
-   * Since Charmeleon has only one attack, this method always executes
-   * {@code Flamethrower}.
-   * </p>
+   *
+   * <p>Since Charmeleon has only one attack, this method always executes {@code Flamethrower}.
    *
    * @param OpponentPokemon the Pokémon being attacked
    * @param attack the index of the attack to use (ignored, as Charmeleon has only one attack)

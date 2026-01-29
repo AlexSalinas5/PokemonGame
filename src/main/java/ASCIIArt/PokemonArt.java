@@ -1,30 +1,28 @@
 package ASCIIArt;
 
-// All ASCII art used can be found here (I did not create any of it): https://www.asciiart.eu/video-games/pokemon
+// All ASCII art used can be found here (I did not create any of it):
+// https://www.asciiart.eu/video-games/pokemon
 
 /**
- * Contains ASCII art representations for Pokémon and related graphics.
- * <p>
- * All art is sourced externally and credited here:
- * <a href="https://www.asciiart.eu/video-games/pokemon">https://www.asciiart.eu/video-games/pokemon</a>
- * </p>
- * <p>
- * Each Pokémon has a corresponding {@code public static String} field that stores
- * its ASCII art. These can be used throughout the game to display Pokémon
- * graphics in the console or GUI components that support monospaced text.
- * </p>
- * <p>
- * Example usage:
- * <pre>
- * {@code
+ * Provides ASCII art representations for Pokémon and related visual assets.
+ *
+ * <p>All ASCII art contained in this class is sourced from external contributors and is credited
+ * here: <a href="https://www.asciiart.eu/video-games/pokemon">
+ * https://www.asciiart.eu/video-games/pokemon </a>
+ *
+ * <p>Each Pokémon (or related graphic) is represented by a {@code public static String} field
+ * containing its ASCII art. These fields are intended to be used throughout the application to
+ * display Pokémon visuals in console output.
+ *
+ * <p><strong>Example usage:</strong>
+ *
+ * <pre>{@code
  * System.out.println(PokemonArt.pikachuArt);
- * }
- * </pre>
- * </p>
+ * }</pre>
  */
 public class PokemonArt {
 
-  /** ASCII art for the Pokémon logo. */
+  /** ASCII art representation of the Pokémon logo. */
   public static String pokemonLogoArt =
             "                                  ,'\\\n"
           + "    _.----.        ____         ,'  _\\   ___    ___     ____\n"
@@ -39,7 +37,7 @@ public class PokemonArt {
           + "        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\n"
           + "                                `'                            '-._|";
 
-  /** ASCII art for Charizard. */
+  /** ASCII art representation of the Pokémon Charizard. */
   public static String charizardArt =
             "                 .\"-,.__\n"
           + "                 `.     `.  ,\n"
@@ -81,7 +79,7 @@ public class PokemonArt {
           + "               /_|.-'\\ ,\".             '.'`__'-( \\\n"
           + "                 / ,\"'\"\\,'               `/  `-.|\"";
 
-  /** ASCII art for Charmeleon. */
+  /** ASCII art representation of the Pokémon Charmeleon. */
   public static String charmeleonArt =
             "                      ,-'`\\\n"
           + "                  _,\"'    j\n"
@@ -120,7 +118,7 @@ public class PokemonArt {
           + "                  L,.--\"'           '-' |  ,' `-.\\\n"
           + "                                        `.'";
 
-  /** ASCII art for Charmander. */
+  /** ASCII art representation of the Pokémon Charmander. */
   public static String charmanderArt =
             "              _.--\"\"`-..\n"
           + "            ,'          `.\n"
@@ -157,8 +155,8 @@ public class PokemonArt {
           + "    \"\"--'---\"\"\"\"\"'        `' '! |! /\n"
           + "                            `\" \" -'";
 
-  /** ASCII art for Ivysaur. */
-  public static String ivysaurArt =
+  /** ASCII art representation of the Pokémon Venusaur. */
+  public static String venusaurArt =
             "                           _._       _,._\n"
           + "                        _.'   `. ' .'   _`.\n"
           + "                ,\"\"\"/`\"\"-.-.,/. ` V'\\-,`.,--/\"\"\".\"-..\n"
@@ -191,42 +189,42 @@ public class PokemonArt {
           + "       /_\\.__,\"\".   ,.'  \"`-...________.---\"     .\".   ,.  / \\\n"
           + "              \\_/\"\"\"-'                           `-'--(_,`\"`-` ";
 
-  /** ASCII art for Venusaur. */
-  public static String venusaurArt =
-          "                               ,'\"`.,./.\n" +
-          "                             ,'        Y',\"..\n" +
-          "                           ,'           \\  | \\\n" +
-          "                          /              . |  `\n" +
-          "                         /               | |   \\\n" +
-          "            __          .                | |    .\n" +
-          "       _   \\  `. ---.   |                | j    |\n" +
-          "      / `-._\\   `Y   \\  |                |.     |\n" +
-          "     _`.    ``    \\   \\ |..              '      |,-'\"\"7,....\n" +
-          "     l     '-.     . , `|  | , |`. , ,  /,     ,'    '/   ,'_,.-.\n" +
-          "     `-..     `-.  : :     |/ `   ' \"\\,' | _  /          '-'    /___\n" +
-          "      \\\"\"' __.,.-`.: :        /   /._    l'.,'\n" +
-          "       `--,   _.-' `\".           /__ `'-.' '         .\n" +
-          "       ,---..._,.--\"\"\"\"\"\"\"--.__..----,-.'   .  /    .'   ,.--\n" +
-          "       |                          ,':| /    | /     ;.,-'--      ,.-\n" +
-          "       |     .---.              .'  :|'     |/ ,.-='\"-.`\"`' _   -.'\n" +
-          "       /    \\    /               `. :|--.  _L,\"---.._        \"----'\n" +
-          "     ,' `.   \\ ,'           _,     `''   ``.-'       `-  -..___,'\n" +
-          "    . ,.  .   `   __     .-'  _.-           `.     .__    \\\n" +
-          "    |. |`        \"  ;   !   ,.  |             `.    `.`'---'\n" +
-          "    ,| |C\\       ` /    | ,' |(]|            -. |-..--`\n" +
-          "   /  \"'--'       '      /___|__]        `.  `- |`.\n" +
-          "  .       ,'                   ,   /       .    `. \\\n" +
-          "    \\                      .,-'  ,'         .     `-.\n" +
-          "     x---..`.  -'  __..--'\"/\"\"\"\"\"  ,-.      |   |   |\n" +
-          "    / \\--._'-.,.--'     _`-    _. ' /       |     -.|\n" +
-          "   ,   .   `-..__ ...--'  _,.-' | `   ,.-.  ;   /  '|\n" +
-          "  .  _,'         '\"-----\"\"      |    `   | /  ,'    ;\n" +
-          "  |-'  .-.    `._               |     `._// ,'     /\n" +
-          " _|    `-'   _,' \"`--.._________|        `,'    _ /.\n" +
-          "//\\   ,-._.'\"/\\__,.   _,\"     /_\\__/`. /'.-.'.-/_,`-' mh\n" +
-          "`-\"`\"' v'    `\"  `-`-\"              `-'`-`  `'";
+  /** ASCII art representation of the Pokémon Ivysaur. */
+  public static String ivysaurArt =
+            "                               ,'\"`.,./.\n"
+          + "                             ,'        Y',\"..\n"
+          + "                           ,'           \\  | \\\n"
+          + "                          /              . |  `\n"
+          + "                         /               | |   \\\n"
+          + "            __          .                | |    .\n"
+          + "       _   \\  `. ---.   |                | j    |\n"
+          + "      / `-._\\   `Y   \\  |                |.     |\n"
+          + "     _`.    ``    \\   \\ |..              '      |,-'\"\"7,....\n"
+          + "     l     '-.     . , `|  | , |`. , ,  /,     ,'    '/   ,'_,.-.\n"
+          + "     `-..     `-.  : :     |/ `   ' \"\\,' | _  /          '-'    /___\n"
+          + "      \\\"\"' __.,.-`.: :        /   /._    l'.,'\n"
+          + "       `--,   _.-' `\".           /__ `'-.' '         .\n"
+          + "       ,---..._,.--\"\"\"\"\"\"\"--.__..----,-.'   .  /    .'   ,.--\n"
+          + "       |                          ,':| /    | /     ;.,-'--      ,.-\n"
+          + "       |     .---.              .'  :|'     |/ ,.-='\"-.`\"`' _   -.'\n"
+          + "       /    \\    /               `. :|--.  _L,\"---.._        \"----'\n"
+          + "     ,' `.   \\ ,'           _,     `''   ``.-'       `-  -..___,'\n"
+          + "    . ,.  .   `   __     .-'  _.-           `.     .__    \\\n"
+          + "    |. |`        \"  ;   !   ,.  |             `.    `.`'---'\n"
+          + "    ,| |C\\       ` /    | ,' |(]|            -. |-..--`\n"
+          + "   /  \"'--'       '      /___|__]        `.  `- |`.\n"
+          + "  .       ,'                   ,   /       .    `. \\\n"
+          + "    \\                      .,-'  ,'         .     `-.\n"
+          + "     x---..`.  -'  __..--'\"/\"\"\"\"\"  ,-.      |   |   |\n"
+          + "    / \\--._'-.,.--'     _`-    _. ' /       |     -.|\n"
+          + "   ,   .   `-..__ ...--'  _,.-' | `   ,.-.  ;   /  '|\n"
+          + "  .  _,'         '\"-----\"\"      |    `   | /  ,'    ;\n"
+          + "  |-'  .-.    `._               |     `._// ,'     /\n"
+          + " _|    `-'   _,' \"`--.._________|        `,'    _ /.\n"
+          + "//\\   ,-._.'\"/\\__,.   _,\"     /_\\__/`. /'.-.'.-/_,`-' mh\n"
+          + "`-\"`\"' v'    `\"  `-`-\"              `-'`-`  `'";
 
-  /** ASCII art for Bulbasaur. */
+  /** ASCII art representation of the Pokémon Bulbasaur. */
   public static String bulbasaurArt =
             "                                           _\n"
           + "                        _,.------....___,.' ',.-.\n"
@@ -257,7 +255,7 @@ public class PokemonArt {
           + " '-.__ __ _,','    '`-..___;-...__   ,.'\\ ____.___.'\n"
           + " `\"^--'..'   '-`-^-'\"--    `-^-'`.''\"\"\"\"\"`.,^.`.--'";
 
-  /** ASCII art for Blastoise. */
+  /** ASCII art representation of the Pokémon Blastoise. */
   public static String blastoiseArt =
             "                          _\n"
           + "            _,..-\"\"\"--' `,.-\".\n"
@@ -296,7 +294,7 @@ public class PokemonArt {
           + "                 \"\"\"\"\"`.,'         _\\`----...' mh\n"
           + "                        --------\"\"'";
 
-  /** ASCII art for Wartortle. */
+  /** ASCII art representation of the Pokémon Wartortle. */
   public static String wartortleArt =
             "     __                                _.--'\"7\n"
           + "    `. `--._                        ,-'_,-  ,'\n"
@@ -335,7 +333,7 @@ public class PokemonArt {
           + "             `-\"'  `\"\"\"\"'            7         `.\n"
           + "                                    `---'--.,'\"`'";
 
-  /** ASCII art for Squirtle. */
+  /** ASCII art representation of the Pokémon Squirtle. */
   public static String squirtleArt =
             "               _,........__\n"
           + "            ,-'            \"`-.\n"
@@ -371,48 +369,54 @@ public class PokemonArt {
           + "                7____,,..--'      /          |\n"
           + "                                  `---.__,--.'";
 
-  /** Placeholder ASCII art for Raichu. */
-  public static String raichuArt = "AN ACTUAL RAICHU ASCII ART NEEDS TO BE FOUND AND REPLACE THIS TEXT!!!!!!";
+  /**
+   * Placeholder ASCII art for the Pokémon Raichu.
+   *
+   * <p>This field currently contains placeholder text and should be replaced with a valid Raichu
+   * ASCII art representation once an appropriate source has been identified.
+   */
+  public static String raichuArt =
+      "AN ACTUAL RAICHU ASCII ART NEEDS TO BE FOUND AND REPLACE THIS TEXT!!!!!!";
 
-  /** ASCII art for Pikachu. */
+  /** ASCII art representation of the Pokémon Pikachu. */
   public static String pikachuArt =
-          "quu..__\n"
-                  + " $$$b  `---.__\n"
-                  + "  \"$$b        `--.                          ___.---uuudP\n"
-                  + "   `$$b           `.__.------.__     __.---'      $$$$\"              .\n"
-                  + "     \"$b          -'            `-.-'            $$$\"              .'|\n"
-                  + "       \".                                       d$\"             _.'  |\n"
-                  + "         `.   /                              ...\"             .'     |\n"
-                  + "           `./                           ..::-'            _.'       |\n"
-                  + "            /                         .:::-'            .-'         .'\n"
-                  + "           :                          ::''\\          _.'            |\n"
-                  + "          .' .-.             .-.           `.      .'               |\n"
-                  + "          : /'$$|           .@\"$\\           `.   .'              _.-'\n"
-                  + "         .'|$u$$|          |$$,$$|           |  <            _.-'\n"
-                  + "         | `:$$:'          :$$$$$:           `.  `.       .-'\n"
-                  + "         :                  `\"--'             |    `-.     \\\n"
-                  + "        :##.       ==             .###.       `.      `.    `\\\n"
-                  + "        |##:                      :###:        |        >     >\n"
-                  + "        |#'     `..'`..'          `###'        x:      /     /\n"
-                  + "         \\                                   xXX|     /    ./\n"
-                  + "          \\                                xXXX'|    /   ./\n"
-                  + "          /`-.                                  `.  /   /\n"
-                  + "         :    `-  ...........,                   | /  .'\n"
-                  + "         |         ``:::::::'       .            |<    `.\n"
-                  + "         |             ```          |           x| \\ `.:``.\n"
-                  + "         |                         .'    /'   xXX|  `:`M`M':.\n"
-                  + "         |    |                    ;    /:' xXXX'|  -'MMMMM:'\n"
-                  + "         `.  .'                   :    /:'       |-'MMMM.-'\n"
-                  + "          |  |                   .'   /'        .'MMM.-'\n"
-                  + "          `'`'                   :  ,'          |MMM<\n"
-                  + "            |                     `'            |tbap\\\n"
-                  + "             \\                                  :MM.-'\n"
-                  + "              \\                 |              .''\n"
-                  + "               \\.               `.            /\n"
-                  + "                /     .:::::::.. :           /\n"
-                  + "               |     .:::::::::::`.         /\n"
-                  + "               |   .:::------------\\       /\n"
-                  + "              /   .''               >::'  /\n"
-                  + "              `',:                 :    .'\n"
-                  + "                                   `:.:' ";
+            "quu..__\n"
+          + " $$$b  `---.__\n"
+          + "  \"$$b        `--.                          ___.---uuudP\n"
+          + "   `$$b           `.__.------.__     __.---'      $$$$\"              .\n"
+          + "     \"$b          -'            `-.-'            $$$\"              .'|\n"
+          + "       \".                                       d$\"             _.'  |\n"
+          + "         `.   /                              ...\"             .'     |\n"
+          + "           `./                           ..::-'            _.'       |\n"
+          + "            /                         .:::-'            .-'         .'\n"
+          + "           :                          ::''\\          _.'            |\n"
+          + "          .' .-.             .-.           `.      .'               |\n"
+          + "          : /'$$|           .@\"$\\           `.   .'              _.-'\n"
+          + "         .'|$u$$|          |$$,$$|           |  <            _.-'\n"
+          + "         | `:$$:'          :$$$$$:           `.  `.       .-'\n"
+          + "         :                  `\"--'             |    `-.     \\\n"
+          + "        :##.       ==             .###.       `.      `.    `\\\n"
+          + "        |##:                      :###:        |        >     >\n"
+          + "        |#'     `..'`..'          `###'        x:      /     /\n"
+          + "         \\                                   xXX|     /    ./\n"
+          + "          \\                                xXXX'|    /   ./\n"
+          + "          /`-.                                  `.  /   /\n"
+          + "         :    `-  ...........,                   | /  .'\n"
+          + "         |         ``:::::::'       .            |<    `.\n"
+          + "         |             ```          |           x| \\ `.:``.\n"
+          + "         |                         .'    /'   xXX|  `:`M`M':.\n"
+          + "         |    |                    ;    /:' xXXX'|  -'MMMMM:'\n"
+          + "         `.  .'                   :    /:'       |-'MMMM.-'\n"
+          + "          |  |                   .'   /'        .'MMM.-'\n"
+          + "          `'`'                   :  ,'          |MMM<\n"
+          + "            |                     `'            |tbap\\\n"
+          + "             \\                                  :MM.-'\n"
+          + "              \\                 |              .''\n"
+          + "               \\.               `.            /\n"
+          + "                /     .:::::::.. :           /\n"
+          + "               |     .:::::::::::`.         /\n"
+          + "               |   .:::------------\\       /\n"
+          + "              /   .''               >::'  /\n"
+          + "              `',:                 :    .'\n"
+          + "                                   `:.:' ";
 }

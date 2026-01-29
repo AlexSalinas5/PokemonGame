@@ -1,12 +1,22 @@
-package Pokemon;
+package Pokemon.Attributes;
+
+import Pokemon.Pokemon;
 
 /**
- * Represents information about a Pokémon attack.
- * <p>
- * An {@code AttackInfo} object encapsulates the name, description, and
- * base damage of an attack. Instances of this class are used by
- * {@link Pokemon} objects to define their available moves.
- * </p>
+ * Encapsulates information about a Pokémon attack.
+ *
+ * <p>An {@code AttackInfo} object stores the attack's name, description, and base damage. Instances
+ * of this class are used by {@link Pokemon} objects to define the moves a Pokémon can perform
+ * during battle.
+ *
+ * <p>Example usage:
+ *
+ * <pre>{@code
+ * AttackInfo thunderbolt = new AttackInfo("Thunderbolt",
+ *                                         "A strong electric attack",
+ *                                         40);
+ * System.out.println(thunderbolt.getAttackName());
+ * }</pre>
  */
 public class AttackInfo {
 
@@ -20,10 +30,10 @@ public class AttackInfo {
   private int attackDamage;
 
   /**
-   * Constructs a new {@code AttackInfo} with the specified attributes.
+   * Constructs a new {@code AttackInfo} instance with the specified attributes.
    *
    * @param attackName the name of the attack
-   * @param attackDescription a description of what the attack does
+   * @param attackDescription a brief description of the attack's effect
    * @param attackDamage the base damage value of the attack
    */
   public AttackInfo(String attackName, String attackDescription, int attackDamage) {
@@ -35,7 +45,7 @@ public class AttackInfo {
   /**
    * Returns the name of the attack.
    *
-   * @return the attack name
+   * @return the attack's name
    */
   public String getAttackName() {
     return this.attackName;
@@ -44,7 +54,7 @@ public class AttackInfo {
   /**
    * Returns the description of the attack.
    *
-   * @return the attack description
+   * @return the attack's description
    */
   public String getAttackDescription() {
     return this.attackDescription;
@@ -53,7 +63,7 @@ public class AttackInfo {
   /**
    * Returns the base damage of the attack.
    *
-   * @return the attack damage value
+   * @return the attack's damage value
    */
   public int getAttackDamage() {
     return this.attackDamage;

@@ -1,4 +1,4 @@
-**IMPORTANT NOTE:** I made a significant update to the code on Jan. 14, 2026. Once I finish implementing the `gameLogic()` method in the `GameLogic` class, I will update this README with the latest changes.
+**IMPORTANT NOTE:** I made a significant update to the code on Jan. 14, 2026. Once I finish implementing the `gameLogic()` method in the `GameLogic.GameLogic` class, I will update this README with the latest changes.
 
 --
 
@@ -20,12 +20,14 @@ To get familiar with basic OOP principles (encapsulation, inheritance, polymorph
 - I am also aware of my use of magic numbers.
 - I should have added method documentation that clearly states what the parameters are for a method, how to use it, and its return value.
 - I should have written JUnit tests.
-- I should have made my `main` method smaller. For example, the first half of my `main` method was just an introduction. I should have created a separate class called `IntroductionToGame`, divided it into even smaller methods within that class, and called it in the `main` method, followed by another class called `GameLogic`, which would also be divided into smaller methods, instead of having one massive `main` method where I sometimes got lost in my own code.
+- I should have made my `main` method smaller. For example, the first half of my `main` method was just an introduction. I should have created a separate class called `IntroductionToGame`, divided it into even smaller methods within that class, and called it in the `main` method, followed by another class called `GameLogic.GameLogic`, which would also be divided into smaller methods, instead of having one massive `main` method where I sometimes got lost in my own code.
 
 Ideally, I envision my `main` method looking something like:
 
 ```java
-public class Main {
+import GameLogic.GameLogic;
+
+public class Main.Main {
     public static void main(String[] args) {
         IntroductionToGame.start();
         GameLogic.start();

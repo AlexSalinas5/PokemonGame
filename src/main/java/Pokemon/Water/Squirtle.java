@@ -4,8 +4,8 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Water.WaterType;
 import Pokemon.Pokemon;
-import Pokemon.PokemonAndHealth;
-import Pokemon.AttackInfo;
+import Pokemon.Attributes.PokemonAndHealth;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Represents the Pokémon Squirtle, a Water-type Pokémon.
@@ -50,8 +50,8 @@ public class Squirtle extends Pokemon {
    * bonus against the opponent's type.
    * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by the Shell Attack
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return total damage dealt by {@code Shell Attack}
    */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     return attackInfo[0].getAttackDamage()

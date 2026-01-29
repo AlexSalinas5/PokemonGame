@@ -5,23 +5,23 @@ import Elements.Electric.ElectricType;
 import Elements.ElementType;
 import Pokemon.Pokemon;
 import java.util.Random;
-import Pokemon.PokemonAndHealth;
-import Pokemon.AttackInfo;
+import Pokemon.Attributes.PokemonAndHealth;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Represents the Pokémon Raichu, an Electric-type Pokémon.
- * <p>
- * Raichu has two available attacks:
+ *
+ * <p>Raichu has two available attacks:
+ *
  * <ul>
- *   <li>{@code Agility}: Deals base damage plus any elemental bonus.
- *       Performs a coin flip; if heads, Raichu becomes invincible for the
- *       opponent's next turn.</li>
- *   <li>{@code Thunder}: Deals base damage plus any elemental bonus.
- *       Performs a coin flip; if tails, Raichu damages itself for 30 HP.</li>
+ *   <li>{@code Agility}: Deals base damage plus any elemental bonus. Performs a coin flip; if
+ *       heads, Raichu becomes invincible for the opponent's next turn.
+ *   <li>{@code Thunder}: Deals base damage plus any elemental bonus. Performs a coin flip; if
+ *       tails, Raichu damages itself for 30 HP.
  * </ul>
- * This class defines Raichu's specific attack logic and overrides
- * the abstract {@link Pokemon#hitOpponent(Pokemon, int)} method.
- * </p>
+ *
+ * This class defines Raichu's specific attack logic and overrides the abstract {@link
+ * Pokemon#hitOpponent(Pokemon, int)} method.
  */
 public class Raichu extends Pokemon {
 
@@ -29,8 +29,8 @@ public class Raichu extends Pokemon {
   private final AttackInfo[] attackInfo;
 
   /**
-   * Constructs a new Raichu Pokémon with default health, element type,
-   * ASCII art, and its two attacks.
+   * Constructs a new Raichu Pokémon with default health, element type, ASCII art, and its two
+   * attacks.
    */
   public Raichu() {
     super(
@@ -43,24 +43,20 @@ public class Raichu extends Pokemon {
               "Agility",
               "Flip a coin. If heads, prevents all damage done to Raichu during opponent's next turn.",
               20),
-          new AttackInfo(
-                  "Thunder",
-                  "Flip a coin. If tails, Raichu does 30 damage to itself.",
-                  60)
+          new AttackInfo("Thunder", "Flip a coin. If tails, Raichu does 30 damage to itself.", 60)
         });
     attackInfo = super.getAttackInfo();
   }
 
   /**
    * Executes Raichu's {@code Agility} attack.
-   * <p>
-   * Deals damage equal to the attack's base damage plus any elemental
-   * bonus against the opponent's type. A coin flip determines whether
-   * Raichu becomes invincible for the opponent's next turn.
-   * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Agility
+   * <p>Deals damage equal to the attack's base damage plus any elemental bonus against the
+   * opponent's type. A coin flip determines whether Raichu becomes invincible for the opponent's
+   * next turn.
+   *
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Agility}
    */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     Random random = new Random();
@@ -79,14 +75,12 @@ public class Raichu extends Pokemon {
 
   /**
    * Executes Raichu's {@code Thunder} attack.
-   * <p>
-   * Deals damage equal to the attack's base damage plus any elemental
-   * bonus against the opponent's type. A coin flip determines whether
-   * Raichu damages itself for 30 HP.
-   * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Thunder
+   * <p>Deals damage equal to the attack's base damage plus any elemental bonus against the
+   * opponent's type. A coin flip determines whether Raichu damages itself for 30 HP.
+   *
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Thunder}
    */
   public int getAttackResult2(ElementType elementTypeOfOpponentPokemon) {
     Random random = new Random();
@@ -107,13 +101,13 @@ public class Raichu extends Pokemon {
 
   /**
    * Performs an attack on an opponent Pokémon.
-   * <p>
-   * Executes {@code Agility} if {@code attack} equals 1; otherwise,
-   * executes {@code Thunder} and may damage Raichu itself based on a coin flip.
-   * </p>
+   *
+   * <p>Executes {@code Agility} if {@code attack} equals 1; otherwise, executes {@code Thunder} and
+   * may damage Raichu itself based on a coin flip.
    *
    * @param OpponentPokemon the Pokémon being attacked
-   * @param attack the index of the attack to use (1 for Agility, others for Thunder)
+   * @param attack the index of the attack to use (1 for {@code Agility}, others for {@code
+   *     Thunder})
    */
   @Override
   public void hitOpponent(Pokemon OpponentPokemon, int attack) {

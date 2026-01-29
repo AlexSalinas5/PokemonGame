@@ -1,1 +1,0 @@
-public class pokemonDiedPermanentlyBecauseItWasPoisonedException extends RuntimeException {}

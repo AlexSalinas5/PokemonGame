@@ -4,8 +4,8 @@ import ASCIIArt.PokemonArt;
 import Elements.ElementType;
 import Elements.Grass.GrassType;
 import Pokemon.Pokemon;
-import Pokemon.PokemonAndHealth;
-import Pokemon.AttackInfo;
+import Pokemon.Attributes.PokemonAndHealth;
+import Pokemon.Attributes.AttackInfo;
 
 /**
  * Represents the Pokémon Ivysaur, a Grass-type Pokémon.
@@ -56,8 +56,8 @@ public class Ivysaur extends Pokemon {
    * bonus against the opponent's type.
    * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Vine Whip
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Vine Whip}
    */
   public int getAttackResult1(ElementType elementTypeOfOpponentPokemon) {
     return attackInfo[0].getAttackDamage()
@@ -68,11 +68,11 @@ public class Ivysaur extends Pokemon {
    * Executes Ivysaur's {@code Poisonpowder} attack.
    * <p>
    * Deals damage equal to the attack's base damage plus any elemental
-   * bonus, and poisons the opponent Pokémon.
+   * bonus against the opponent's type. Additionally, poisons the opponent Pokémon.
    * </p>
    *
-   * @param elementTypeOfOpponentPokemon the opponent's elemental type
-   * @return total damage dealt by Poisonpowder
+   * @param elementTypeOfOpponentPokemon the element type of the opponent Pokémon
+   * @return the total damage dealt by {@code Poisonpowder}
    */
   public int getAttackResult2(ElementType elementTypeOfOpponentPokemon) {
     return attackInfo[1].getAttackDamage()
@@ -83,7 +83,7 @@ public class Ivysaur extends Pokemon {
    * Performs an attack on an opponent Pokémon.
    * <p>
    * Executes {@code Vine Whip} if {@code attack} equals 1; otherwise,
-   * executes {@code Poisonpowder} and applies poison to the opponent.
+   * executes {@code Poisonpowder} and poisons the opponent Pokémon.
    * </p>
    *
    * @param OpponentPokemon the Pokémon being attacked
