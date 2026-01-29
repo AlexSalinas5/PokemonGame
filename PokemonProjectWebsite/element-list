@@ -1,0 +1,16 @@
+ASCIIArt
+CustomException
+Elements
+Elements.Electric
+Elements.Fire
+Elements.Grass
+Elements.Water
+GameLogic
+Main
+Pokemon
+Pokemon.Attributes
+Pokemon.Electricity
+Pokemon.Fire
+Pokemon.Grass
+Pokemon.Water
+Trainer
