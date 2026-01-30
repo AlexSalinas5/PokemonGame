@@ -1,12 +1,8 @@
-**IMPORTANT NOTE:** I made a significant update to the code on Jan. 14, 2026. Once I finish implementing the `gameLogic()` method in the `GameLogic.GameLogic` class, I will update this README with the latest changes.
-
---
-
 # PokemonGame
+**Website:** [https://alexsalinas5.github.io/PokemonGame/overview-tree.html](https://alexsalinas5.github.io/PokemonGame/overview-tree.html)
 
 ## Turn-Based Pokémon Battle Game (Completed)
-
-**In Terminal:** A fast-paced, 3-player Pokémon-style battle simulator written in Java, featuring ASCII visuals and turn-based combat logic. This project applies core object-oriented programming principles; encapsulation, inheritance, abstraction, interfaces, and polymorphism; to implement elemental damage systems, Pokémon evolution, and status effects such as poison and invincibility. The codebase consists of over 2,500 lines across 25 classes, including abstract classes, interfaces, custom exceptions, and enums.
+**In Console:** A fast-paced, 2-5-player Pokémon-style battle simulator written in Java, featuring ASCII visuals and turn-based combat logic. This project applies core object-oriented programming principles; encapsulation, inheritance, abstraction, interfaces, and polymorphism; and uses the Factory design pattern to implement elemental damage systems, Pokémon evolution, and status effects such as poison and invincibility. The codebase consists of over 3,300 lines across 28 classes, including abstract classes, interfaces, custom exceptions, and enums.
 
 ---
 
@@ -15,25 +11,19 @@ To get familiar with basic OOP principles (encapsulation, inheritance, polymorph
 
 ---
 
-## Improvements to the Project
-- I am very aware of my repetition of code in the `hitOpponent` method for the `Pokemon` class, as well as the large amount of repeated code in the `main` method (a violation of the DRY principle).  
-- I am also aware of my use of magic numbers.
-- I should have added method documentation that clearly states what the parameters are for a method, how to use it, and its return value.
-- I should have written JUnit tests.
-- I should have made my `main` method smaller. For example, the first half of my `main` method was just an introduction. I should have created a separate class called `IntroductionToGame`, divided it into even smaller methods within that class, and called it in the `main` method, followed by another class called `GameLogic.GameLogic`, which would also be divided into smaller methods, instead of having one massive `main` method where I sometimes got lost in my own code.
+## Future Improvements
+I am interested in potentially adding the following features to enhance gameplay, code quality, and user experience:
 
-Ideally, I envision my `main` method looking something like:
-
-```java
-import GameLogic.GameLogic;
-
-public class Main.Main {
-    public static void main(String[] args) {
-        IntroductionToGame.start();
-        GameLogic.start();
-    }
-}
-```
+- **More Pokémon:** Expand the roster to include additional types and species.  
+- **Add Items:** Trainers would have the ability to heal their Pokémon and much more.  
+- **Move Accuracy:** Implement hit/miss chances for attacks.  
+- **Dodge Mechanics:** Add accuracy/dodge chances for Pokémon to avoid attacks.  
+- **Expanded Attacks:** Give every Pokémon at least two attacks, with options for cooldowns or special mechanics; one attack per Pokémon will not have a cooldown. A maximum of four attacks will be given to each Pokémon.  
+- **Team Attacks:** Enable multiple Pokémon to attack together or coordinate moves.  
+- **AI Opponents:** Introduce computer-controlled players with basic strategy.  
+- **JUnit Testing:** Add automated tests to improve reliability and maintainability.  
+- **Code Quality Tools:** Consider adding dependencies such as static analyzers or Checkstyle to enforce coding standards and catch potential issues early.  
+- **JavaFX Interface:** Add a graphical window with visuals and audio to enhance the gameplay experience.
 
 ---
 
@@ -46,9 +36,10 @@ I learned why it’s important to do things the right way first instead of doing
 ---
 
 ## Final Thoughts
-This personal project has taught me a massive amount, and although I know I can absolutely fix every issue I see with my program (with my most upsetting offense being my main method where I repeated a lot of code, but I stated a potential idea above to fix this), I am proud that I was able to complete my initial goal for starting the project.
+This personal project has taught me a massive amount, and I am proud that I was able to complete my initial goal for starting the project.
 I know I will take all of the lessons I’ve learned into the next project, where I believe I will feel completely satisfied with the result. I have made many mistakes with this project but have learned much more because of them.
 
 ---
 
 Thank you very much for reading.
+
