@@ -6,6 +6,16 @@
 
 ---
 
+## How to Play
+1. Start the game and choose the number of trainers (2–5).
+2. Each trainer enters their name and selects a Pokémon.
+3. Trainers take turns choosing moves to attack opponents.
+4. Damage is calculated based on move type and Pokémon stats.
+5. Trainers are eliminated when all of their Pokémon faint.
+6. The last trainer standing wins.
+
+---
+
 ## Point of the Project
 To get familiar with basic OOP principles (encapsulation, inheritance, polymorphism, abstraction) while also making a game for me and my friends to play.
 
